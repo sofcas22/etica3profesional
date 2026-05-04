@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ética Profesional & Ciudadanía Global | Módulo 3</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --cream: #f5f0e8;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a3;
+    --rust: #c0392b;
+    --teal: #1e6f5c;
+    --teal-light: #d4eae5;
+    --lavender: #6c5ce7;
+    --lavender-light: #e8e4f8;
+    --sky: #2980b9;
+    --sky-light: #d6eaf8;
+    --amber: #d35400;
+    --amber-light: #fdebd0;
+    --slate: #2c3e50;
+    --muted: #7f8c8d;
+    --border: #d5c9b5;
+    --card-shadow: 0 4px 24px rgba(26,26,46,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 17px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .header-texture {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent, transparent 40px,
+      rgba(201,168,76,0.05) 40px, rgba(201,168,76,0.05) 80px
+    );
+    pointer-events: none;
+  }
+  .header-inner {
+    position: relative; z-index: 1;
+    max-width: 900px; margin: 0 auto;
+    padding: 80px 32px 64px;
+  }
+  .header-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 4px 12px;
+    margin-bottom: 28px;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  header h1 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+  .header-subtitle {
+    font-size: 1.1rem;
+    color: rgba(245,240,232,0.7);
+    font-weight: 300;
+    max-width: 580px;
+    margin-bottom: 36px;
+  }
+  .header-meta {
+    display: flex; gap: 24px; flex-wrap: wrap;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+    border-top: 1px solid rgba(201,168,76,0.25);
+    padding-top: 24px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: white;
+    border-bottom: 2px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-inner {
+    max-width: 900px; margin: 0 auto;
+    padding: 0 32px;
+    display: flex; gap: 0; overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  nav a {
+    display: block;
+    padding: 16px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    letter-spacing: 0.02em;
+  }
+  nav a:hover { color: var(--ink); border-bottom-color: var(--gold); }
+
+  /* ── MAIN LAYOUT ── */
+  main {
+    max-width: 900px; margin: 0 auto;
+    padding: 64px 32px;
+  }
+
+  /* ── INTRO BLOCK ── */
+  .intro-block {
+    background: white;
+    border-left: 5px solid var(--gold);
+    padding: 40px 44px;
+    margin-bottom: 80px;
+    box-shadow: var(--card-shadow);
+    position: relative;
+  }
+  .intro-block::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 120px;
+    color: var(--gold-light);
+    position: absolute;
+    top: -20px; left: 24px;
+    line-height: 1;
+  }
+  .intro-block p {
+    font-size: 1.05rem;
+    color: var(--slate);
+    position: relative; z-index: 1;
+  }
+  .intro-block p + p { margin-top: 16px; }
+
+  /* ── SECTION HEADERS ── */
+  .section-anchor { padding-top: 20px; }
+  
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .topic-header {
+    display: flex; align-items: flex-start; gap: 20px;
+    margin-bottom: 32px;
+  }
+  .topic-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--gold-light);
+    flex-shrink: 0;
+    margin-top: -6px;
+  }
+  .topic-title-wrap {}
+  .topic-title-wrap h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .topic-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── TOPIC CARDS ── */
+  .topic-section {
+    background: white;
+    padding: 40px 44px;
+    margin-bottom: 64px;
+    box-shadow: var(--card-shadow);
+    border-top: 4px solid;
+  }
+  .topic-section.t1 { border-color: var(--teal); }
+  .topic-section.t2 { border-color: var(--sky); }
+  .topic-section.t3 { border-color: var(--lavender); }
+  .topic-section.t4 { border-color: var(--amber); }
+  .topic-section.t5 { border-color: var(--rust); }
+
+  .t1 .topic-badge { background: var(--teal-light); color: var(--teal); }
+  .t2 .topic-badge { background: var(--sky-light); color: var(--sky); }
+  .t3 .topic-badge { background: var(--lavender-light); color: var(--lavender); }
+  .t4 .topic-badge { background: var(--amber-light); color: var(--amber); }
+  .t5 .topic-badge { background: #fce4e4; color: var(--rust); }
+
+  .topic-section p { color: var(--slate); margin-bottom: 20px; }
+
+  /* ── SUB-HEADINGS ── */
+  .sub-heading {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 36px 0 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .sub-heading::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+
+  /* ── SOURCE CARDS ── */
+  .sources-grid { display: grid; gap: 16px; margin-bottom: 24px; }
+  .source-card {
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+    background: var(--cream);
+    position: relative;
+    padding-left: 44px;
+  }
+  .source-num {
+    position: absolute; left: 16px; top: 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+  }
+  .source-author {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .source-text {
+    font-size: 0.9rem;
+    color: var(--slate);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── RESOURCES ── */
+  .resources-grid { display: grid; gap: 12px; margin-bottom: 24px; }
+  .resource-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 16px 20px;
+    border: 1px solid var(--border);
+    background: white;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .resource-item:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+  }
+  .resource-icon {
+    font-size: 1.4rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .resource-content {}
+  .resource-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+  .resource-title {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .resource-url {
+    font-size: 0.8rem;
+    color: var(--sky);
+    word-break: break-all;
+  }
+
+  /* ── EXAMPLE BOX ── */
+  .example-box {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 28px 32px;
+    margin-top: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .example-box::before {
+    content: 'EJEMPLO DE APLICACIÓN';
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .example-box::after {
+    content: '✦';
+    position: absolute;
+    right: 24px; bottom: 16px;
+    font-size: 2rem;
+    color: rgba(201,168,76,0.15);
+  }
+  .example-box p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.9);
+    margin: 0;
+  }
+
+  /* ── REFS COLLAPSE ── */
+  .refs-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    padding: 10px 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    margin-top: 28px;
+    transition: background 0.2s, color 0.2s;
+    width: 100%;
+  }
+  .refs-toggle:hover { background: var(--cream); color: var(--ink); }
+  .refs-toggle .arrow { transition: transform 0.2s; }
+  .refs-toggle.open .arrow { transform: rotate(90deg); }
+  .refs-content {
+    display: none;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-top: none;
+    padding: 24px 28px;
+  }
+  .refs-content.open { display: block; }
+  .refs-content p {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--slate);
+    margin: 0 0 10px;
+  }
+  .refs-content p:last-child { margin: 0; }
+
+  /* ── JUSTIFICACION ── */
+  #justificacion {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 60px 44px;
+    margin-bottom: 64px;
+    box-shadow: var(--card-shadow);
+  }
+  #justificacion .section-label { color: var(--gold); }
+  #justificacion h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: var(--cream);
+  }
+  .just-item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 20px;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(245,240,232,0.1);
+  }
+  .just-item:last-child { border: none; margin-bottom: 0; padding-bottom: 0; }
+  .just-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    font-weight: 900;
+    line-height: 1;
+    padding-top: 2px;
+  }
+  .just-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+  .just-content p {
+    font-size: 0.95rem;
+    color: rgba(245,240,232,0.8);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ── CONCLUSIONES ── */
+  #conclusiones {
+    background: white;
+    padding: 52px 44px;
+    margin-bottom: 64px;
+    box-shadow: var(--card-shadow);
+    border-top: 4px solid var(--gold);
+  }
+  #conclusiones h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+    color: var(--ink);
+  }
+  .concl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+  .concl-card {
+    border: 1px solid var(--border);
+    padding: 24px;
+    background: var(--cream);
+    position: relative;
+  }
+  .concl-card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .concl-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .concl-card p {
+    font-size: 0.88rem;
+    color: var(--slate);
+    line-height: 1.65;
+    margin: 0;
+  }
+  .concl-closing {
+    border-left: 4px solid var(--gold);
+    padding: 20px 24px;
+    background: #faf7f0;
+    font-size: 1rem;
+    color: var(--slate);
+    font-style: italic;
+  }
+
+  /* ── REFLEXION ── */
+  #reflexion {
+    padding: 52px 44px;
+    margin-bottom: 64px;
+    background: white;
+    box-shadow: var(--card-shadow);
+    border-top: 4px solid var(--teal);
+  }
+  #reflexion h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  #reflexion .reflex-lead {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-bottom: 32px;
+    font-style: italic;
+  }
+  .reflex-block { margin-bottom: 28px; }
+  .reflex-block h3 {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+  .reflex-block p {
+    font-size: 0.97rem;
+    color: var(--slate);
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  /* ── REFS GENERAL ── */
+  #referencias {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 40px 44px;
+    margin-bottom: 64px;
+  }
+  #referencias h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+    color: var(--ink);
+  }
+  .ref-list p {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--slate);
+    margin-bottom: 10px;
+    padding-left: 20px;
+    text-indent: -20px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(245,240,232,0.5);
+    text-align: center;
+    padding: 40px 32px;
+    font-size: 13px;
+  }
+  footer strong { color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .header-inner { padding: 48px 20px 40px; }
+    main { padding: 40px 20px; }
+    .topic-section, #justificacion, #conclusiones, #reflexion, #referencias { padding: 28px 24px; }
+    .intro-block { padding: 28px 24px; }
+    .topic-number { font-size: 2.5rem; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.6s ease both; }
+  .fade-up:nth-child(2) { animation-delay: 0.1s; }
+  .fade-up:nth-child(3) { animation-delay: 0.2s; }
+
+  /* progress bar */
+  #progress-bar {
+    position: fixed; top: 0; left: 0;
+    height: 3px; background: var(--gold);
+    width: 0%; z-index: 200;
+    transition: width 0.1s linear;
+  }
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-texture"></div>
+  <div class="header-inner">
+    <div class="header-tag">Blog Académico · Universidad Tecmilenio · Mayo 2026</div>
+    <h1>Ética Profesional<br>& <em>Ciudadanía Global</em></h1>
+    <p class="header-subtitle">Una exploración reflexiva de los cinco pilares del Módulo 3 — de los derechos humanos al desarrollo sustentable.</p>
+    <div class="header-meta">
+      <span>📚 Módulo 3 · Temas 11–15</span>
+      <span>✦ Cinco subtemas esenciales</span>
+      <span>📍 Guadalajara, Jalisco</span>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#introduccion">Introducción</a>
+    <a href="#t1">Derechos Humanos</a>
+    <a href="#t2">Ciudadanía Activa</a>
+    <a href="#t3">Ética Teleológica</a>
+    <a href="#t4">Interculturalidad</a>
+    <a href="#t5">Sustentabilidad</a>
+    <a href="#justificacion">Justificación</a>
+    <a href="#conclusiones">Conclusiones</a>
+    <a href="#reflexion">Reflexión</a>
+    <a href="#referencias">Referencias</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main>
+
+  <!-- INTRODUCCIÓN -->
+  <section id="introduccion" class="section-anchor">
+    <div class="section-label">Punto de partida</div>
+    <div class="intro-block fade-up">
+      <p>Este blog académico integra los aprendizajes centrales del <strong>Módulo 3 — Ética Profesional y Ciudadanía Global</strong>, que abarca los Temas 11 al 15: Códigos de alcance universal, Conceptos de ciudadanía, La carga teleológica, Entendimiento intercultural y Desarrollo sustentable y futuro.</p>
+      <p>A partir de una revisión crítica de los materiales del curso y fuentes académicas externas, se seleccionaron <strong>cinco subtemas esenciales</strong> que articulan de manera transversal la formación ética, ciudadana y profesional. Cada subtema incluye información documentada, recursos interactivos y un ejemplo de aplicación práctica en el mundo real.</p>
+    </div>
+  </section>
+
+  <!-- SUBTEMA 1 -->
+  <section id="t1" class="section-anchor">
+    <div class="section-label">Subtema 1 · Tema 11</div>
+    <div class="topic-section t1 fade-up">
+      <div class="topic-header">
+        <div class="topic-number">01</div>
+        <div class="topic-title-wrap">
+          <h2>Derechos Humanos como fundamento ético universal</h2>
+          <span class="topic-badge">Códigos de alcance universal</span>
+        </div>
+      </div>
+      <p>Los derechos humanos constituyen el marco normativo mínimo que protege la dignidad de toda persona, independientemente de su origen, cultura o condición social. El Tema 11 del módulo los sitúa como el primer gran código ético que toda sociedad debe respetar y promover.</p>
+
+      <div class="sub-heading">Fuentes académicas</div>
+      <div class="sources-grid">
+        <div class="source-card">
+          <span class="source-num">F1</span>
+          <div class="source-author">ONU (2015) — Declaración Universal de los Derechos Humanos</div>
+          <p class="source-text">Adoptada en 1948, proclama 30 artículos que reconocen derechos civiles, políticos, económicos, sociales y culturales inherentes a todo ser humano. Su carácter universal implica que ningún Estado puede invocar su soberanía para justificar su violación.</p>
+        </div>
+        <div class="source-card">
+          <span class="source-num">F2</span>
+          <div class="source-author">Nussbaum, M. C. (2011) — Creating Capabilities</div>
+          <p class="source-text">Argumenta que los derechos humanos no son meras declaraciones formales, sino capacidades reales que los Estados deben garantizar: vida, salud, integridad corporal, sentidos, emociones, razón práctica, afiliación, control del entorno político y material.</p>
+        </div>
+        <div class="source-card">
+          <span class="source-num">F3</span>
+          <div class="source-author">CNDH México (2022) — ¿Qué son los Derechos Humanos?</div>
+          <p class="source-text">Señala que estos derechos son universales (para todos), indivisibles (no se pueden separar), interdependientes (se refuerzan mutuamente) e inalienables (no se pueden ceder ni arrebatar).</p>
+        </div>
+      </div>
+
+      <div class="sub-heading">Recursos complementarios</div>
+      <div class="resources-grid">
+        <a class="resource-item" href="https://www.youtube.com/watch?v=5sWr35bGstQ" target="_blank" rel="noopener">
+          <span class="resource-icon">🎬</span>
+          <div class="resource-content">
+            <div class="resource-type">Video · ONU · 5 min</div>
+            <div class="resource-title">¿Qué son los Derechos Humanos? — Animación didáctica</div>
+            <div class="resource-url">youtube.com/watch?v=5sWr35bGstQ</div>
+          </div>
+        </a>
+        <a class="resource-item" href="https://www.cndh.org.mx/derechos-humanos/que-son-los-derechos-humanos" target="_blank" rel="noopener">
+          <span class="resource-icon">🌐</span>
+          <div class="resource-content">
+            <div class="resource-type">Liga web · CNDH México</div>
+            <div class="resource-title">Derechos Humanos: conceptos y clasificación</div>
+            <div class="resource-url">cndh.org.mx</div>
+          </div>
+        </a>
+        <a class="resource-item" href="https://amnistia.org.mx/contenido/index.php/educacion-en-ddhh/" target="_blank" rel="noopener">
+          <span class="resource-icon">🎮</span>
+          <div class="resource-content">
+            <div class="resource-type">Actividad lúdica · Amnistía Internacional México</div>
+            <div class="resource-title">El juego de las tarjetas de derechos — dinámica grupal</div>
+            <div class="resource-url">amnistia.org.mx</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="sub-heading">Ejemplo de aplicación</div>
+      <div class="example-box">
+        <p>Un profesionista de Recursos Humanos que conoce los derechos humanos laborales (no discriminación, salario justo, condiciones dignas) diseña políticas de contratación inclusivas y denuncia ante la STPS cualquier práctica violatoria, aplicando directamente el Artículo 23 de la DUDH sobre el derecho al trabajo digno.</p>
+      </div>
+
+      <button class="refs-toggle" onclick="toggleRefs(this)">
+        <span class="arrow">▶</span> Ver referencias APA del subtema
+      </button>
+      <div class="refs-content">
+        <p>Comisión Nacional de los Derechos Humanos. (2022). ¿Qué son los derechos humanos? CNDH. https://www.cndh.org.mx/derechos-humanos/que-son-los-derechos-humanos</p>
+        <p>Nussbaum, M. C. (2011). Creating capabilities: The human development approach. Harvard University Press.</p>
+        <p>Organización de las Naciones Unidas. (2015). Declaración Universal de Derechos Humanos. ONU. https://www.un.org/es/about-us/universal-declaration-of-human-rights</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBTEMA 2 -->
+  <section id="t2" class="section-anchor">
+    <div class="section-label">Subtema 2 · Tema 12</div>
+    <div class="topic-section t2 fade-up">
+      <div class="topic-header">
+        <div class="topic-number">02</div>
+        <div class="topic-title-wrap">
+          <h2>Ciudadanía activa y responsabilidad cívica</h2>
+          <span class="topic-badge">Conceptos de ciudadanía</span>
+        </div>
+      </div>
+      <p>El Tema 12 aborda los conceptos de ciudadanía y su relación con la vida pública. La ciudadanía activa va más allá de poseer un documento de identidad: implica participar, deliberar, exigir derechos y cumplir obligaciones dentro de la comunidad.</p>
+
+      <div class="sub-heading">Fuentes académicas</div>
+      <div class="sources-grid">
+        <div class="source-card">
+          <span class="source-num">F1</span>
+          <div class="source-author">Cortina, A. (2009) — Ciudadanos del mundo</div>
+          <p class="source-text">Distingue entre ciudadanía civil (derechos ante la ley), política (participación democrática), social (bienestar), económica (acceso al mercado) e intercultural (reconocimiento de la diversidad). Una ciudadanía plena exige articular todas estas dimensiones.</p>
+        </div>
+        <div class="source-card">
+          <span class="source-num">F2</span>
+          <div class="source-author">Kymlicka, W. & Norman, W. (1994) — Return of the citizen</div>
+          <p class="source-text">Argumentan que la ciudadanía responsable requiere virtudes cívicas activas: participación en la vida pública, solidaridad social y voluntad de ponerse en el lugar del otro para tomar decisiones colectivas.</p>
+        </div>
+        <div class="source-card">
+          <span class="source-num">F3</span>
+          <div class="source-author">IMCO (2022) — Índice de Competitividad Urbana</div>
+          <p class="source-text">Las ciudades con mayor participación ciudadana (votación, consultas públicas, presupuestos participativos) presentan mejores indicadores de gobernanza, transparencia y calidad de vida.</p>
+        </div>
+      </div>
+
+      <div class="sub-heading">Recursos complementarios</div>
+      <div class="resources-grid">
+        <a class="resource-item" href="https://www.youtube.com/watch?v=Nl5XlNTuXb4" target="_blank" rel="noopener">
+          <span class="resource-icon">🎬</span>
+          <div class="resource-content">
+            <div class="resource-type">Video · Canal Encuentro · 8 min</div>
+            <div class="resource-title">¿Qué es la ciudadanía activa?</div>
+            <div class="resource-url">youtube.com/watch?v=Nl5XlNTuXb4</div>
+          </div>
+        </a>
+        <a class="resource-item" href="https://www.ine.mx/voto-y-elecciones/cultura-civica/" target="_blank" rel="noopener">
+          <span class="resource-icon">🌐</span>
+          <div class="resource-content">
+            <div class="resource-type">Liga web · INE México</div>
+            <div class="resource-title">Cultura cívica y participación ciudadana</div>
+            <div class="resource-url">ine.mx</div>
+          </div>
+        </a>
+        <a class="resource-item" href="https://www.gob.mx/cms/uploads/attachment/file/35423/manual_participacion_ciudadana.pdf" target="_blank" rel="noopener">
+          <span class="resource-icon">🎮</span>
+          <div class="resource-content">
+            <div class="resource-type">Actividad lúdica · Gobierno de México</div>
+            <div class="resource-title">Simulacro de cabildo abierto — guía metodológica</div>
+            <div class="resource-url">gob.mx — Manual de participación ciudadana</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="sub-heading">Ejemplo de aplicación</div>
+      <div class="example-box">
+        <p>Un vecino de Guadalajara que conoce sus derechos ciudadanos acude a la sesión de cabildo abierto del Ayuntamiento para exigir la instalación de alumbrado público en su colonia, presenta una petición firmada y da seguimiento al compromiso adquirido por el regidor. Este es un acto concreto de ciudadanía activa que transforma la vida comunitaria.</p>
+      </div>
+
+      <button class="refs-toggle" onclick="toggleRefs(this)">
+        <span class="arrow">▶</span> Ver referencias APA del subtema
+      </button>
+      <div class="refs-content">
+        <p>Cortina, A. (2009). Ciudadanos del mundo: Hacia una teoría de la ciudadanía (3.ª ed.). Alianza Editorial.</p>
+        <p>Instituto Mexicano para la Competitividad. (2022). Índice de competitividad urbana 2022. IMCO. https://imco.org.mx/indices/indice-de-competitividad-urbana-2022/</p>
+        <p>Kymlicka, W., & Norman, W. (1994). Return of the citizen: A survey of recent work on citizenship theory. Ethics, 104(2), 352–381. https://doi.org/10.1086/293605</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBTEMA 3 -->
+  <section id="t3" class="section-anchor">
+    <div class="section-label">Subtema 3 · Tema 13</div>
+    <div class="topic-section t3 fade-up">
+      <div class="topic-header">
+        <div class="topic-number">03</div>
+        <div class="topic-title-wrap">
+          <h2>Ética teleológica y la búsqueda de la felicidad</h2>
+          <span class="topic-badge">La carga teleológica</span>
+        </div>
+      </div>
+      <p>El Tema 13 recupera la tradición aristotélica que vincula la ética con el bien y la felicidad (eudaimonía). Esta perspectiva es esencial porque orienta la toma de decisiones profesionales y personales hacia fines genuinamente humanos.</p>
+
+      <div class="sub-heading">Fuentes académicas</div>
+      <div class="sources-grid">
+        <div class="source-card">
+          <span class="source-num">F1</span>
+          <div class="source-author">Aristóteles (trad. 2014) — Ética a Nicómaco</div>
+          <p class="source-text">Define la felicidad como la actividad del alma conforme a la virtud. No es un estado pasivo sino una práctica constante: el ser humano florece cuando desarrolla sus capacidades más elevadas —razón, justicia, prudencia— al servicio del bien común.</p>
+        </div>
+        <div class="source-card">
+          <span class="source-num">F2</span>
+          <div class="source-author">Seligman, M. E. P. (2011) — Flourish</div>
+          <p class="source-text">Desde la psicología positiva propone el modelo PERMA: Emociones positivas, Compromiso (Engagement), Relaciones, Significado y Logro (Accomplishment). Actualiza la eudaimonía aristotélica con evidencia empírica.</p>
+        </div>
+        <div class="source-card">
+          <span class="source-num">F3</span>
+          <div class="source-author">Frankl, V. (2004) — El hombre en busca de sentido</div>
+          <p class="source-text">Documenta que las personas que encontraron sentido a su sufrimiento en los campos de concentración sobrevivieron con mayor frecuencia. Concluye que la búsqueda de sentido —no de placer ni de poder— es la motivación primaria humana.</p>
+        </div>
+      </div>
+
+      <div class="sub-heading">Recursos complementarios</div>
+      <div class="resources-grid">
+        <a class="resource-item" href="https://www.ted.com/talks/martin_seligman_the_new_era_of_positive_psychology" target="_blank" rel="noopener">
+          <span class="resource-icon">🎬</span>
+          <div class="resource-content">
+            <div class="resource-type">TED Talk · Martin Seligman · 20 min</div>
+            <div class="resource-title">La ciencia de la felicidad — subtitulado al español</div>
+            <div class="resource-url">ted.com/talks/martin_seligman</div>
+          </div>
+        </a>
+        <a class="resource-item" href="https://open.spotify.com/show/masfilosofia" target="_blank" rel="noopener">
+          <span class="resource-icon">🎧</span>
+          <div class="resource-content">
+            <div class="resource-type">Podcast · Spotify</div>
+            <div class="resource-title">Filosofía para vivir mejor — episodio sobre eudaimonía</div>
+            <div class="resource-url">open.spotify.com</div>
+          </div>
+        </a>
+        <a class="resource-item" href="https://www.futureme.org/" target="_blank" rel="noopener">
+          <span class="resource-icon">🎮</span>
+          <div class="resource-content">
+            <div class="resource-type">Actividad reflexiva · FutureMe.org</div>
+            <div class="resource-title">Carta a mi yo futuro — herramienta de reflexión personal</div>
+            <div class="resource-url">futureme.org</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="sub-heading">Ejemplo de aplicación</div>
+      <div class="example-box">
+        <p>Un médico que trabaja bajo la ética teleológica no solo trata enfermedades, sino que se pregunta constantemente: ¿Este tratamiento contribuye al florecimiento integral de mi paciente? Esto le lleva a incluir consideraciones de bienestar emocional, entorno familiar y calidad de vida en su práctica, más allá del diagnóstico clínico.</p>
+      </div>
+
+      <button class="refs-toggle" onclick="toggleRefs(this)">
+        <span class="arrow">▶</span> Ver referencias APA del subtema
+      </button>
+      <div class="refs-content">
+        <p>Aristóteles. (2014). Ética a Nicómaco (trad. J. Pallí Bonet). Gredos. (Obra original ca. 350 a.C.)</p>
+        <p>Frankl, V. E. (2004). El hombre en busca de sentido (21.ª ed.). Herder Editorial.</p>
+        <p>Seligman, M. E. P. (2011). Flourish: A visionary new understanding of happiness and well-being. Free Press.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBTEMA 4 -->
+  <section id="t4" class="section-anchor">
+    <div class="section-label">Subtema 4 · Tema 14</div>
+    <div class="topic-section t4 fade-up">
+      <div class="topic-header">
+        <div class="topic-number">04</div>
+        <div class="topic-title-wrap">
+          <h2>Entendimiento intercultural — empatía y aceptación</h2>
+          <span class="topic-badge">Entendimiento intercultural</span>
+        </div>
+      </div>
+      <p>El Tema 14 plantea que la globalización exige competencias interculturales para convivir y colaborar con personas de culturas distintas. La empatía, la aceptación y la valoración de la diversidad son los rasgos éticos que hacen posible esta convivencia productiva.</p>
+
+      <div class="sub-heading">Fuentes académicas</div>
+      <div class="sources-grid">
+        <div class="source-card">
+          <span class="source-num">F1</span>
+          <div class="source-author">Barreda, P. (2020) — La empatía, aceptación incondicional y la autenticidad</div>
+          <p class="source-text">Distingue entre simpatía (sentir lo mismo que el otro) y empatía (ponerse en el lugar del otro manteniendo la propia identidad). La empatía cognitiva permite comprender las perspectivas ajenas sin perder la propia.</p>
+        </div>
+        <div class="source-card">
+          <span class="source-num">F2</span>
+          <div class="source-author">Hofstede, G. et al. (2010) — Cultures and Organizations</div>
+          <p class="source-text">El modelo identifica seis dimensiones culturales (distancia al poder, individualismo, masculinidad, evitación de incertidumbre, orientación a largo plazo e indulgencia) que explican por qué personas de distintas culturas perciben el mismo evento de manera radicalmente diferente.</p>
+        </div>
+        <div class="source-card">
+          <span class="source-num">F3</span>
+          <div class="source-author">Bennett, M. J. (2004) — Becoming Interculturally Competent</div>
+          <p class="source-text">Propone el Modelo de Desarrollo de la Sensibilidad Intercultural (DMIS), que va de la negación de la diferencia cultural hasta la integración de múltiples marcos de referencia. La competencia intercultural es un proceso progresivo que puede enseñarse y evaluarse.</p>
+        </div>
+      </div>
+
+      <div class="sub-heading">Recursos complementarios</div>
+      <div class="resources-grid">
+        <a class="resource-item" href="https://www.youtube.com/watch?v=1Evwgu369Jw" target="_blank" rel="noopener">
+          <span class="resource-icon">🎬</span>
+          <div class="resource-content">
+            <div class="resource-type">Video · RSA Animate · 3 min</div>
+            <div class="resource-title">El poder de la empatía — animación basada en Brené Brown</div>
+            <div class="resource-url">youtube.com/watch?v=1Evwgu369Jw</div>
+          </div>
+        </a>
+        <a class="resource-item" href="https://www.hofstede-insights.com/country-comparison/" target="_blank" rel="noopener">
+          <span class="resource-icon">🌐</span>
+          <div class="resource-content">
+            <div class="resource-type">Herramienta interactiva · Hofstede Insights</div>
+            <div class="resource-title">Comparador de dimensiones culturales entre países</div>
+            <div class="resource-url">hofstede-insights.com</div>
+          </div>
+        </a>
+        <a class="resource-item" href="https://www.nicholasbrealey.com/9781857882971" target="_blank" rel="noopener">
+          <span class="resource-icon">🎮</span>
+          <div class="resource-content">
+            <div class="resource-type">Juego de simulación intercultural</div>
+            <div class="resource-title">Barnga — juego de cartas con reglas culturales distintas</div>
+            <div class="resource-url">nicholasbrealey.com</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="sub-heading">Ejemplo de aplicación</div>
+      <div class="example-box">
+        <p>Un ingeniero de software mexicano que trabaja en un equipo multinacional (India, Alemania, Brasil) utiliza las dimensiones de Hofstede para entender por qué sus colegas alemanes prefieren comunicación directa y documentada, mientras que sus colegas brasileños privilegian las relaciones personales. Adapta su estilo de comunicación sin renunciar a su identidad, logrando mayor cohesión y productividad.</p>
+      </div>
+
+      <button class="refs-toggle" onclick="toggleRefs(this)">
+        <span class="arrow">▶</span> Ver referencias APA del subtema
+      </button>
+      <div class="refs-content">
+        <p>Barreda, P. (2020). La empatía, aceptación incondicional y la autenticidad. Universidad Mayor. https://www.universidadmayor.es/wp-content/uploads/2020/04/APUNTES-LA-EMPATIA-ACEPTACION-AUTENTICIDAD.pdf</p>
+        <p>Bennett, M. J. (2004). Becoming interculturally competent. En J. Wurzel (Ed.), Toward multiculturalism: A reader in multicultural education (2.ª ed., pp. 62–77). Intercultural Resource Corporation.</p>
+        <p>Hofstede, G., Hofstede, G. J., & Minkov, M. (2010). Cultures and organizations: Software of the mind (3.ª ed.). McGraw-Hill.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBTEMA 5 -->
+  <section id="t5" class="section-anchor">
+    <div class="section-label">Subtema 5 · Tema 15</div>
+    <div class="topic-section t5 fade-up">
+      <div class="topic-header">
+        <div class="topic-number">05</div>
+        <div class="topic-title-wrap">
+          <h2>Desarrollo sustentable y responsabilidad con las generaciones futuras</h2>
+          <span class="topic-badge">Desarrollo sustentable y futuro</span>
+        </div>
+      </div>
+      <p>El Tema 15 cierra el módulo con una pregunta ética de máxima urgencia: ¿tenemos obligaciones morales con las personas que aún no han nacido? El desarrollo sustentable responde que sí, e integra los pilares ambiental, social y económico en toda decisión personal, profesional y política.</p>
+
+      <div class="sub-heading">Fuentes académicas</div>
+      <div class="sources-grid">
+        <div class="source-card">
+          <span class="source-num">F1</span>
+          <div class="source-author">Brundtland, G. H. (1987) — Nuestro futuro común</div>
+          <p class="source-text">Define el desarrollo sustentable como aquel que satisface las necesidades del presente sin comprometer la capacidad de las generaciones futuras para satisfacer las suyas. Establece el marco de los tres pilares: económico, social y ambiental.</p>
+        </div>
+        <div class="source-card">
+          <span class="source-num">F2</span>
+          <div class="source-author">Sachs, J. D. (2015) — The Age of Sustainable Development</div>
+          <p class="source-text">Vincula los 17 Objetivos de Desarrollo Sostenible (ODS) con la necesidad de una nueva ética global. La sustentabilidad no es solo un problema técnico sino una responsabilidad moral compartida que exige cambios en los patrones de consumo, producción y gobernanza.</p>
+        </div>
+        <div class="source-card">
+          <span class="source-num">F3</span>
+          <div class="source-author">Kothari, A. et al. (2019) — Pluriverse</div>
+          <p class="source-text">Reúne alternativas al desarrollo hegemónico desde perspectivas indígenas, feministas y comunitarias de todo el mundo, demostrando que la sustentabilidad requiere también justicia epistémica y reconocimiento de los saberes locales.</p>
+        </div>
+      </div>
+
+      <div class="sub-heading">Recursos complementarios</div>
+      <div class="resources-grid">
+        <a class="resource-item" href="https://www.youtube.com/watch?v=5G0hOet5Ry8" target="_blank" rel="noopener">
+          <span class="resource-icon">🎬</span>
+          <div class="resource-content">
+            <div class="resource-type">Video · PNUD México · 8 min</div>
+            <div class="resource-title">Los 17 ODS explicados — animación oficial</div>
+            <div class="resource-url">youtube.com/watch?v=5G0hOet5Ry8</div>
+          </div>
+        </a>
+        <a class="resource-item" href="https://www.un.org/sustainabledevelopment/es/" target="_blank" rel="noopener">
+          <span class="resource-icon">🌐</span>
+          <div class="resource-content">
+            <div class="resource-type">Portal web · ONU</div>
+            <div class="resource-title">Agenda 2030 y los Objetivos de Desarrollo Sostenible</div>
+            <div class="resource-url">un.org/sustainabledevelopment/es</div>
+          </div>
+        </a>
+        <a class="resource-item" href="https://www.wwf.org.mx/que_hacemos/huella_ecologica/calculadora_de_huella_ecologica/" target="_blank" rel="noopener">
+          <span class="resource-icon">🎮</span>
+          <div class="resource-content">
+            <div class="resource-type">Calculadora interactiva · WWF México</div>
+            <div class="resource-title">Mi huella ecológica — ¿cuántos planetas necesitas?</div>
+            <div class="resource-url">wwf.org.mx</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="sub-heading">Ejemplo de aplicación</div>
+      <div class="example-box">
+        <p>Una empresa manufacturera en Jalisco adopta los ODS 12 (Producción y consumo responsables) y 13 (Acción por el clima) como parte de su estrategia de negocio: reduce en 30% su consumo de agua, elimina el plástico de un solo uso en sus empaques y publica un reporte de sustentabilidad anual. Esto le permite reducir costos, mejorar su imagen y contribuir al bienestar de las generaciones futuras.</p>
+      </div>
+
+      <button class="refs-toggle" onclick="toggleRefs(this)">
+        <span class="arrow">▶</span> Ver referencias APA del subtema
+      </button>
+      <div class="refs-content">
+        <p>Brundtland, G. H. (1987). Nuestro futuro común. Comisión Mundial sobre el Medio Ambiente y el Desarrollo, Naciones Unidas.</p>
+        <p>Kothari, A., Salleh, A., Escobar, A., Demaria, F., & Acosta, A. (Eds.). (2019). Pluriverse: A post-development dictionary. Tulika Books / Columbia University Press.</p>
+        <p>Sachs, J. D. (2015). The age of sustainable development. Columbia University Press.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JUSTIFICACIÓN -->
+  <section id="justificacion" class="section-anchor">
+    <div class="section-label">Por qué estos cinco</div>
+    <div id="argumentacion-container">
+      <div class="section-label">Argumentación</div>
+      <h2>Justificación de los subtemas seleccionados</h2>
+
+      <div class="just-item">
+        <div class="just-num">1</div>
+        <div class="just-content">
+          <h3>Derechos Humanos — El piso mínimo ético irrenunciable</h3>
+          <p>Sin el reconocimiento de los derechos humanos como punto de partida, cualquier conversación sobre ética profesional carece de fundamento. Son el código más universal que existe y su conocimiento permite al profesionista identificar cuándo sus acciones —o las de su organización— vulneran la dignidad humana. Este subtema proporciona el lenguaje común y el marco normativo desde el que se articulan todos los demás.</p>
+        </div>
+      </div>
+
+      <div class="just-item">
+        <div class="just-num">2</div>
+        <div class="just-content">
+          <h3>Ciudadanía activa — La ética llevada a la acción pública</h3>
+          <p>La ética no puede quedarse en el plano individual. La ciudadanía activa es el mecanismo mediante el cual los valores éticos se traducen en participación, deliberación y transformación social. Un profesionista que no ejerce su ciudadanía contribuye —por omisión— a perpetuar las injusticias que critica. Este subtema conecta la formación ética con la responsabilidad democrática.</p>
+        </div>
+      </div>
+
+      <div class="just-item">
+        <div class="just-num">3</div>
+        <div class="just-content">
+          <h3>Ética teleológica — El propósito que orienta las decisiones</h3>
+          <p>La pregunta por el bien y la felicidad es la pregunta ética por excelencia. La tradición teleológica enseña que no basta con cumplir reglas: hay que saber para qué se actúa. Un profesionista que conoce su telos —su propósito— toma mejores decisiones, resiste mejor la corrupción y encuentra mayor sentido en su trabajo. Este subtema aporta la dimensión motivacional de la ética.</p>
+        </div>
+      </div>
+
+      <div class="just-item">
+        <div class="just-num">4</div>
+        <div class="just-content">
+          <h3>Entendimiento intercultural — La ética de la diferencia</h3>
+          <p>Vivimos en un mundo diverso y nuestros contextos laborales son cada vez más multiculturales. La competencia intercultural no es un lujo: es una necesidad ética en un mundo globalizado. Sin ella, caemos en etnocentrismos que generan discriminación, malentendidos y conflictos. Este subtema dota al estudiante de herramientas prácticas para trabajar con respeto y eficacia en entornos diversos.</p>
+        </div>
+      </div>
+
+      <div class="just-item">
+        <div class="just-num">5</div>
+        <div class="just-content">
+          <h3>Desarrollo sustentable — La ética de la responsabilidad intergeneracional</h3>
+          <p>Este subtema cierra el módulo con la pregunta más urgente de nuestro tiempo: ¿somos responsables de las personas que vendrán después de nosotros? La respuesta ética es afirmativa, y el desarrollo sustentable es el marco operativo que nos permite actuar en consecuencia. Integra los planos ambiental, social y económico en una visión holística que exige al profesionista pensar como ciudadano global.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCLUSIONES -->
+  <section id="conclusiones" class="section-anchor">
+    <div class="section-label">Cierre reflexivo</div>
+    <div id="conclusiones-container">
+      <div class="section-label">Aprendizaje integrado</div>
+      <h2>Conclusiones del Módulo 3</h2>
+
+      <div class="concl-grid">
+        <div class="concl-card">
+          <div class="concl-card-label">Conclusión 1</div>
+          <h4>La ética es indisociable de la acción</h4>
+          <p>El Módulo 3 dejó claro que los principios éticos no tienen valor si no se materializan en decisiones y comportamientos concretos. Conocer los derechos humanos sin defenderlos, o comprender la sustentabilidad sin cambiar hábitos, es una forma de inconsistencia moral.</p>
+        </div>
+        <div class="concl-card">
+          <div class="concl-card-label">Conclusión 2</div>
+          <h4>La ciudadanía es una práctica cotidiana</h4>
+          <p>Ser ciudadano no es un estado pasivo. El módulo evidenció que la participación —en el barrio, en la empresa, en la política— es la forma más concreta de ejercer la ética en el espacio público. Cada decisión de involucrarse o abstenerse tiene consecuencias colectivas.</p>
+        </div>
+        <div class="concl-card">
+          <div class="concl-card-label">Conclusión 3</div>
+          <h4>El propósito como brújula profesional</h4>
+          <p>La ética teleológica aportó la perspectiva más profunda: antes de preguntar qué hacer, hay que preguntarse para qué. Un profesionista con sentido de propósito toma decisiones más coherentes, más resilientes y más humanas.</p>
+        </div>
+        <div class="concl-card">
+          <div class="concl-card-label">Conclusión 4</div>
+          <h4>La diversidad es una riqueza, no un obstáculo</h4>
+          <p>El entendimiento intercultural reveló que las diferencias culturales son fuentes de aprendizaje mutuo. Lejos de ignorarlas o temerlas, el profesionista ético las convierte en ventaja colaborativa y en ejercicio de respeto activo.</p>
+        </div>
+        <div class="concl-card">
+          <div class="concl-card-label">Conclusión 5</div>
+          <h4>Nuestra responsabilidad trasciende el presente</h4>
+          <p>El desarrollo sustentable amplió el horizonte temporal de la ética: nuestras decisiones de hoy afectan a personas que aún no existen. Esta responsabilidad intergeneracional es quizás la dimensión más exigente y al mismo tiempo más significativa del módulo.</p>
+        </div>
+      </div>
+
+      <div class="concl-closing">
+        En conjunto, los cinco subtemas forman un arco argumental coherente: los derechos humanos establecen el punto de partida, la ciudadanía activa exige compromiso, la ética teleológica provee propósito, el entendimiento intercultural garantiza el respeto en la diversidad, y el desarrollo sustentable proyecta la responsabilidad hacia el futuro. Omitir cualquiera de ellos dejaría incompleta la formación del profesionista ético que el módulo busca construir.
+      </div>
+    </div>
+  </section>
+
+  <!-- REFLEXIÓN -->
+  <section id="reflexion" class="section-anchor">
+    <div class="section-label">Impacto personal</div>
+    <div id="reflexion-container">
+      <div class="section-label">Mirada hacia adentro</div>
+      <h2>Reflexión personal</h2>
+      <p class="reflex-lead">Sobre el impacto de esta asignatura en mi actuar ético y ciudadano</p>
+
+      <div class="reflex-block">
+        <h3>🌱 En lo personal</h3>
+        <p>Cursar el Módulo 3 de Ética Profesional y Ciudadanía Global me obligó a detenerme y preguntarme cosas que rara vez me preguntaba en la vida cotidiana: ¿Estoy viviendo conforme a mis valores? ¿Mis decisiones de consumo afectan a otras personas? ¿Estoy siendo ciudadano activo o simplemente quejándome en redes sociales? La ética teleológica, especialmente la idea aristotélica de la eudaimonía, me ayudó a entender que la felicidad no es algo que llega desde afuera, sino algo que se construye con cada decisión que tomo. Ahora me propongo ser más intencional en mis hábitos, más consciente de mi huella ecológica y más participativo en mi comunidad inmediata.</p>
+      </div>
+
+      <div class="reflex-block">
+        <h3>💼 En lo profesional</h3>
+        <p>El módulo transformó mi manera de entender el ejercicio profesional. Antes veía la ética como un conjunto de restricciones —lo que no debo hacer. Ahora la entiendo como una brújula que me orienta hacia el tipo de profesionista que quiero ser. Los derechos humanos me recuerdan que detrás de cada decisión organizacional hay personas con dignidad. El entendimiento intercultural me equipó con herramientas para trabajar con equipos diversos sin imponer mi perspectiva. Y el desarrollo sustentable me enseñó que el éxito profesional que no considera su impacto social y ambiental es, en el mejor de los casos, incompleto.</p>
+      </div>
+
+      <div class="reflex-block">
+        <h3>🌍 En lo ciudadano</h3>
+        <p>Quizás el cambio más significativo es que ya no me veo solo como individuo sino como parte de una comunidad global interconectada. La ciudadanía activa no es un ideal abstracto: comienza por informarme, votar, participar en decisiones comunitarias y exigir transparencia a mis representantes. El módulo me convenció de que el silencio también es una postura política, y que elegir no participar tiene consecuencias tan reales como elegir participar. A partir de hoy, quiero ser el tipo de ciudadano que toma en serio su responsabilidad con el presente y con el futuro.</p>
+      </div>
+
+      <div class="reflex-block">
+        <h3>✦ Síntesis integradora</h3>
+        <p>Esta asignatura contribuirá en mi actuar ético y ciudadano de una manera que pocas materias logran: no solo amplió mi conocimiento, sino que interpeló mi identidad. Me preguntó quién quiero ser, qué tipo de mundo quiero habitar y qué estoy dispuesto a hacer para construirlo. La respuesta no está terminada, pero al menos ahora tengo mejores preguntas, herramientas más sólidas y una convicción más profunda de que la ética no es una asignatura académica sino una forma de vida.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENCIAS GENERALES -->
+  <section id="referencias" class="section-anchor">
+    <div id="referencias-container">
+      <h2>📚 Referencias bibliográficas generales</h2>
+      <p style="font-size:0.85rem; color:var(--muted); margin-bottom:20px; font-style:italic;">Formato APA 7.ª edición</p>
+      <div class="ref-list">
+        <p>Aristóteles. (2014). <em>Ética a Nicómaco</em> (trad. J. Pallí Bonet). Gredos. (Obra original ca. 350 a.C.)</p>
+        <p>Barreda, P. (2020). La empatía, aceptación incondicional y la autenticidad. <em>Universidad Mayor.</em> https://www.universidadmayor.es/wp-content/uploads/2020/04/APUNTES-LA-EMPATIA-ACEPTACION-AUTENTICIDAD.pdf</p>
+        <p>Bennett, M. J. (2004). Becoming interculturally competent. En J. Wurzel (Ed.), <em>Toward multiculturalism: A reader in multicultural education</em> (2.ª ed., pp. 62–77). Intercultural Resource Corporation.</p>
+        <p>Brundtland, G. H. (1987). <em>Nuestro futuro común.</em> Comisión Mundial sobre el Medio Ambiente y el Desarrollo, Naciones Unidas.</p>
+        <p>Comisión Nacional de los Derechos Humanos. (2022). <em>¿Qué son los derechos humanos?</em> CNDH. https://www.cndh.org.mx/derechos-humanos/que-son-los-derechos-humanos</p>
+        <p>Cortina, A. (2009). <em>Ciudadanos del mundo: Hacia una teoría de la ciudadanía</em> (3.ª ed.). Alianza Editorial.</p>
+        <p>Frankl, V. E. (2004). <em>El hombre en busca de sentido</em> (21.ª ed.). Herder Editorial.</p>
+        <p>Hofstede, G., Hofstede, G. J., & Minkov, M. (2010). <em>Cultures and organizations: Software of the mind</em> (3.ª ed.). McGraw-Hill.</p>
+        <p>Instituto Mexicano para la Competitividad. (2022). <em>Índice de competitividad urbana 2022.</em> IMCO. https://imco.org.mx/indices/indice-de-competitividad-urbana-2022/</p>
+        <p>Kothari, A., Salleh, A., Escobar, A., Demaria, F., & Acosta, A. (Eds.). (2019). <em>Pluriverse: A post-development dictionary.</em> Tulika Books / Columbia University Press.</p>
+        <p>Kymlicka, W., & Norman, W. (1994). Return of the citizen: A survey of recent work on citizenship theory. <em>Ethics, 104</em>(2), 352–381. https://doi.org/10.1086/293605</p>
+        <p>Nussbaum, M. C. (2011). <em>Creating capabilities: The human development approach.</em> Harvard University Press.</p>
+        <p>Organización de las Naciones Unidas. (2015). <em>Declaración Universal de Derechos Humanos.</em> ONU. https://www.un.org/es/about-us/universal-declaration-of-human-rights</p>
+        <p>Sachs, J. D. (2015). <em>The age of sustainable development.</em> Columbia University Press.</p>
+        <p>Seligman, M. E. P. (2011). <em>Flourish: A visionary new understanding of happiness and well-being.</em> Free Press.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Ética Profesional y Ciudadanía Global · Módulo 3</strong></p>
+  <p style="margin-top:8px;">Universidad Tecmilenio &nbsp;·&nbsp; Mayo 2026 &nbsp;·&nbsp; Guadalajara, Jalisco</p>
+  <p style="margin-top:8px; font-size:11px;">Blog académico creado para la actividad de cierre del módulo</p>
+</footer>
+
+<script>
+  // Toggle references
+  function toggleRefs(btn) {
+    const content = btn.nextElementSibling;
+    btn.classList.toggle('open');
+    content.classList.toggle('open');
+    btn.querySelector('.arrow').textContent = content.classList.contains('open') ? '▼' : '▶';
+  }
+
+  // Reading progress bar
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop || document.body.scrollTop;
+    const total = doc.scrollHeight - doc.clientHeight;
+    const pct = total > 0 ? (scrolled / total) * 100 : 0;
+    document.getElementById('progress-bar').style.width = pct + '%';
+  });
+
+  // JavaScript para prevenir la recarga al hacer click en los links de navegación
+  document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetID = this.getAttribute('href');
+      const targetElement = document.querySelector(targetID);
+      
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 70, // Ajuste para que la barra de navegación no tape el título
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Intersection Observer for nav highlight
+  const sections = document.querySelectorAll('.section-anchor');
+  const navLinks = document.querySelectorAll('nav a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(a => {
+          a.style.color = a.getAttribute('href') === '#' + id
+            ? 'var(--ink)' : '';
+          a.style.borderBottomColor = a.getAttribute('href') === '#' + id
+            ? 'var(--gold)' : '';
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
